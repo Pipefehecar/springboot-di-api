@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Primary
-@Repository
+@Repository("FooProducts")
 public class ProductRepositoryFoo implements ProductRepository {
 
 

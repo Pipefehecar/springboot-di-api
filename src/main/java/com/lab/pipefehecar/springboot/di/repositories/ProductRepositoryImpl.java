@@ -1,12 +1,12 @@
 package com.lab.pipefehecar.springboot.di.repositories;
 
 import com.lab.pipefehecar.springboot.di.models.Product;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+@Repository("OldProducts")
 public class ProductRepositoryImpl implements ProductRepository {
     private final List<Product> data;
 

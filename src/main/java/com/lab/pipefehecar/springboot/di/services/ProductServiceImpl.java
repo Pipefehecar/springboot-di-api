@@ -2,7 +2,7 @@ package com.lab.pipefehecar.springboot.di.services;
 
 import com.lab.pipefehecar.springboot.di.models.Product;
 import com.lab.pipefehecar.springboot.di.repositories.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,8 +11,11 @@ import java.util.stream.Collectors;
 @Component
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductRepository repository;
+    private final ProductRepository repository;
+
+    public ProductServiceImpl(@Qualifier("OldProducts") ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Product> getAll(){
