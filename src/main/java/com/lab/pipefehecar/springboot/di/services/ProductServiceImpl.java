@@ -4,11 +4,12 @@ import com.lab.pipefehecar.springboot.di.models.Product;
 import com.lab.pipefehecar.springboot.di.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
@@ -21,9 +22,10 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAll(){
         return repository.getAll().stream().map(p ->{
             double newPrice = p.getPrice() * 1.25d;
-            Product newProduct = (Product) p.clone();
-            newProduct.setPrice((long)newPrice);
-            return newProduct;
+//            Product newProduct = (Product) p.clone();
+//            newProduct.setPrice((long)newPrice);
+            p.setPrice((long) newPrice);
+            return p;
         }).collect(Collectors.toList());
     }
 

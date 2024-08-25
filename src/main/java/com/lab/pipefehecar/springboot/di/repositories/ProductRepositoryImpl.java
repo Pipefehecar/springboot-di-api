@@ -2,11 +2,13 @@ package com.lab.pipefehecar.springboot.di.repositories;
 
 import com.lab.pipefehecar.springboot.di.models.Product;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.web.context.annotation.RequestScope;
 import java.util.Arrays;
 import java.util.List;
 
+
 @Repository("OldProducts")
+@RequestScope
 public class ProductRepositoryImpl implements ProductRepository {
     private final List<Product> data;
 
@@ -26,6 +28,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product getById(Long id) {
-      return data.stream().filter(product -> product.getId().equals(id)).findFirst().orElse(null);
+        return data.stream().filter(product -> product.getId().equals(id)).findFirst().orElse(null);
     }
 }
+
+
