@@ -3,12 +3,15 @@ package com.lab.pipefehecar.springboot.di.repositories;
 import com.lab.pipefehecar.springboot.di.models.Product;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
+
 import java.util.Arrays;
 import java.util.List;
 
 
 @Repository("OldProducts")
-@RequestScope
+//@RequestScope
+@SessionScope
 public class ProductRepositoryImpl implements ProductRepository {
     private final List<Product> data;
 
