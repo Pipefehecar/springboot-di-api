@@ -3,7 +3,6 @@ package com.lab.pipefehecar.springboot.di.services;
 import com.lab.pipefehecar.springboot.di.models.Product;
 import com.lab.pipefehecar.springboot.di.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
